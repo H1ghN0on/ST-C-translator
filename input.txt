@@ -49,10 +49,20 @@ FOR inf := 5 TO 10 BY 2 DO
   
 END_FOR
 
-WHILE (k < 0) DO
+WHILE k < 0 DO
     int11: INT := 543
 END_WHILE
 
-WHILE (k1 + k2) DO
+WHILE k1 + k2 DO
 
 END_WHILE
+
+
+REPEAT
+    int11: INT := 543
+UNTIL k = 0
+END_REPEAT
+
+REPEAT
+UNTIL k < g
+END_REPEAT

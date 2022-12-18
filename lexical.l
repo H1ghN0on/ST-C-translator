@@ -45,6 +45,9 @@ void showError();
 "WHILE" { return WHILE; }
 "END_WHILE" { return END_WHILE; }
 
+"REPEAT" { return REPEAT; }
+"UNTIL" { return UNTIL; }
+"END_REPEAT" { return END_REPEAT; }
 
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}

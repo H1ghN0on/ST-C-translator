@@ -65,9 +65,12 @@
      END_FOR = 281,
      WHILE = 282,
      END_WHILE = 283,
-     STRING = 284,
-     SIGN = 285,
-     NUM = 286
+     REPEAT = 284,
+     UNTIL = 285,
+     END_REPEAT = 286,
+     STRING = 287,
+     SIGN = 288,
+     NUM = 289
    };
 #endif
 
@@ -85,7 +88,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 89 "parser.tab.h"
+#line 92 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
