@@ -1,0 +1,13 @@
+VAR
+    int1: INT := 543
+    str1: STRING := "Ohayo"
+    int2: INT := 543
+    int3: INT := 543
+    int4: INT := 543
+    int5: INT := 543
+    int6: INT := 543
+    int7: INT
+    str8: STRING
+END_VAR
+
+str3: STRING := "Ohayogozaimasu"

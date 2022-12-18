@@ -3,37 +3,34 @@
 /* C stuff (includes, function declarations, etc) */
 
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
+#include "parser.tab.h"
+extern FILE* yyin;
+extern FILE* yyout;
 void showError();
 
 %}
 
 %%
 
-/* tokens */
-
-[a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return VARIABLE;}
-[0-9]+ {strcpy(yylval.str, yytext); return NUM;}
-["+""-""*""/"">""<"">=""<="] {strcpy(yylval.str, yytext); return SIGN;}
-
-"VAR" { return VAR; }
 ":" { return COLON; }
-"INT" { return INT; }
-"STRING" { return STRING; }
-"REAL" { return REAL; }
-":=" { return ASSIGN; }
-"mod" { return MOD; }
-"OR" { return OR; }
-"XOR" { return XOR; }
-"AND" { return AND; }
-"NOT" { return NOT; }
-"IF" { return IF; }
-"ELSEIF" { return ELSEIF; }
-"ELSE" { return ELSE; }
-"THEN" { return THEN; }
-"END_IF" { return END_IF; }
+"INT" { return INT_TYPE; }
+"STRING" { return STRING_TYPE; }
 
-. {showError(); return NONE;}
+":=" { return ASSIGN; }
+"VAR" { return VAR_BEGIN; }
+"END_VAR" { return VAR_END; }
+
+
+
+["] { return QUOTATION; }
+[a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}
+[0-9]+ {strcpy(yylval.str, yytext); return NUM;}
+
+[ \t\v\n\f] { }
+
+
 
 %%
 
@@ -42,3 +39,5 @@ void showError();
 void showError() {
    printf("Unknown token");
 }
+
+int yywrap(void) {return 1;}
