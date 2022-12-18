@@ -87,7 +87,8 @@ create_variable_list:
 
 
 create_variable:
-    set_int_var ASSIGN NUM
+    
+    set_int_var ASSIGN expr
     {
         strcpy($$, $1);  
         strcat($$, " = ");
@@ -110,6 +111,14 @@ create_variable:
         strcpy($$, $1);
         strcat($$, " = \"\"");
     }
+    | set_string_var ASSIGN expr
+    {
+        strcpy($$, $1);  
+        strcat($$, " = ");
+        strcat($$, $3); 
+    }
+
+
 
 set_string_var:
     STRING COLON STRING_TYPE

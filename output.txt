@@ -13,7 +13,8 @@ int main()
 	int int7 = 0;
 	char str8[255] = "";
 	char str3[255] = "Ohayogozaimasu";
-	int var1 = 3;
+	int var6 = 3 + 5 + var2;
+	char var5[255] = var3 + var3 / var4;
 	var1 = var2 + var3
 	var1 + var2 * var4 / var5 % var6 + var9 == var4 - var3;
 	var1 / var2;
@@ -53,7 +54,7 @@ int main()
 	do {
 		int int11 = 543;
 	} while (k == 0);
-	do {} while (k < g);
+	do {} whildo {} while (k < g);
 	
 	return 0;
 }
