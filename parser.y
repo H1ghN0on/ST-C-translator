@@ -19,10 +19,10 @@ extern int yylex();
 
 %start prog
 
-%token ASSIGN INT_TYPE COLON  STRING_TYPE QUOTATION VAR_BEGIN VAR_END
-%token<str> STRING
+%token ASSIGN INT_TYPE COLON STRING_TYPE QUOTATION VAR_BEGIN VAR_END EQUALS UNEQUALS MOD OR XOR AND NOT 
+%token<str> STRING SIGN
 %token<str> NUM
-%type<str> action_list create_variable action create_variable_list set_string_var set_int_var
+%type<str> action_list create_variable action create_variable_list set_string_var set_int_var expr expr_operand
 
 
 
@@ -44,6 +44,8 @@ action:
     { printf("VAR"); strcpy($$, $1); strcat($$,";\n\t");}
     | VAR_BEGIN create_variable_list VAR_END
     { printf("Var start"); strcpy($$, $2); printf("Var end"); }
+    | expr
+    { printf("EXPR"); strcpy($$, $1); strcat($$,";\n\t"); }
 ;
 
 
@@ -94,14 +96,35 @@ set_int_var:
 
 /* --------------------------------------EXPRESSIONS--------------------------------------------*/
 
-
-
-
+expr_operand:
+    STRING
+    {strcpy($$, $1);} 
+    | NUM
+    {strcpy($$, $1);}
+expr:
+    expr_operand EQUALS expr_operand
+    {strcpy($$, $1); strcat($$, " == "); strcat($$, $3);}
+    | expr_operand UNEQUALS expr_operand
+    {strcpy($$, $1); strcat($$, " != "); strcat($$, $3);}
+    | expr_operand MOD expr_operand
+    {strcpy($$, $1); strcat($$, " %% "); strcat($$, $3);}
+    | expr_operand SIGN expr_operand
+    {strcpy($$, $1); strcat($$, " "); strcat($$, $2); strcat($$, " "); strcat($$, $3);}
+    | NOT expr_operand
+    {strcpy($$, "!"); strcat($$, $2);}
+    | expr_operand OR expr_operand
+    {strcpy($$, $1); strcat($$, " || "); strcat($$, $3);}
+    | expr_operand AND expr_operand
+    {strcpy($$, $1); strcat($$, " && "); strcat($$, $3);}
+    | expr_operand XOR expr_operand
+    {strcpy($$, $1); strcat($$, " ^ "); strcat($$, $3);}
 %%
 
 int main(void)
 {
-
+    /* #ifdef YYDEBUG
+    yydebug = 1;
+    #endif */
     yyin = fopen("input.txt","r");
     yyout = fopen("output.txt","w");
 

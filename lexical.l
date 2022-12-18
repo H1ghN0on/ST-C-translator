@@ -22,11 +22,20 @@ void showError();
 "VAR" { return VAR_BEGIN; }
 "END_VAR" { return VAR_END; }
 
+"=" { return EQUALS; }
+"<>" { return UNEQUALS; }
+"mod" { return MOD; }
+"OR" { return OR; }
+"XOR" { return XOR; }
+"AND" { return AND; }
+"NOT" { return NOT; }
 
 
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}
 [0-9]+ {strcpy(yylval.str, yytext); return NUM;}
+["+""-""*""\/"">""<"">=""<="] {strcpy(yylval.str, yytext); return SIGN;}
+
 
 [ \t\v\n\f] { }
 

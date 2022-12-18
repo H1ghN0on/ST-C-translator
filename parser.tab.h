@@ -46,8 +46,16 @@
      QUOTATION = 262,
      VAR_BEGIN = 263,
      VAR_END = 264,
-     STRING = 265,
-     NUM = 266
+     EQUALS = 265,
+     UNEQUALS = 266,
+     MOD = 267,
+     OR = 268,
+     XOR = 269,
+     AND = 270,
+     NOT = 271,
+     STRING = 272,
+     SIGN = 273,
+     NUM = 274
    };
 #endif
 
@@ -65,7 +73,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 69 "parser.tab.h"
+#line 77 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
