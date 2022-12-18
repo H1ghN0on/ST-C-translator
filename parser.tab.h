@@ -58,9 +58,14 @@
      ELSE = 274,
      THEN = 275,
      END_IF = 276,
-     STRING = 277,
-     SIGN = 278,
-     NUM = 279
+     FOR = 277,
+     TO = 278,
+     DO = 279,
+     BY = 280,
+     END_FOR = 281,
+     STRING = 282,
+     SIGN = 283,
+     NUM = 284
    };
 #endif
 
@@ -78,7 +83,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 82 "parser.tab.h"
+#line 87 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

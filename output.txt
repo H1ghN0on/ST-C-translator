@@ -39,6 +39,10 @@ int main()
 	} else if (var1 / var2) {
 		int int11 = 543;
 	}
+	for (int inf = var1 + var2; inf < var2 < var3; inf++) {
+		int int11 = 543;
+	}
+	for (int inf = 5; inf < 10; inf += 2) {}
 	
 	return 0;
 }

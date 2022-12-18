@@ -22,13 +22,20 @@ void addTabulations(char* subject);
 
 %start prog
 
-%token ASSIGN INT_TYPE COLON STRING_TYPE QUOTATION VAR_BEGIN VAR_END EQUALS UNEQUALS MOD OR XOR AND NOT IF ELSE_IF ELSE THEN END_IF
+%token ASSIGN INT_TYPE COLON STRING_TYPE 
+QUOTATION VAR_BEGIN VAR_END EQUALS 
+UNEQUALS MOD OR XOR AND 
+NOT IF ELSE_IF ELSE 
+THEN END_IF FOR TO DO BY END_FOR
+
+
 %token<str> STRING SIGN
 %token<str> NUM
-%type<str> action_list else if_init if_content
-create_variable action 
-create_variable_list set_string_var 
-set_int_var expr expr_operand if 
+%type<str> action_list action 
+%type<str> create_variable create_variable_list set_string_var set_int_var
+%type<str> expr expr_operand if 
+%type<str> else if_init if_content
+%type<str> for for_head for_head_main
 
 
 
@@ -55,6 +62,8 @@ action:
     { printf("EXPR"); strcpy($$, $1); strcat($$,";\n\t"); }
     | if
     { printf("IF"); strcpy($$, $1); strcat($$,"\n\t"); }
+    | for
+    { printf("FOR"); strcpy($$, $1); strcat($$,"\n\t"); }
 ;
 
 
@@ -111,7 +120,9 @@ expr_operand:
     | NUM
     {strcpy($$, $1);}
 expr:
-    expr_operand EQUALS expr_operand
+    expr_operand
+    {strcpy($$, $1);}
+    | expr_operand EQUALS expr_operand
     {strcpy($$, $1); strcat($$, " == "); strcat($$, $3);}
     | expr_operand UNEQUALS expr_operand
     {strcpy($$, $1); strcat($$, " != "); strcat($$, $3);}
@@ -127,7 +138,6 @@ expr:
     {strcpy($$, $1); strcat($$, " && "); strcat($$, $3);}
     | expr_operand XOR expr_operand
     {strcpy($$, $1); strcat($$, " ^ "); strcat($$, $3);}
-
 
 /* ---------------------------------------------------------------------------------------------*/
 
@@ -181,6 +191,61 @@ if_content:
         addTabulations($3);
         strcat($$, $3); 
         strcat($$, "}");
+    }
+    
+/* ---------------------------------------------------------------------------------------------*/
+
+/* ---------------------------------------FOR LOOPS-------------------------------------------------*/
+
+for: 
+    FOR for_head DO action_list END_FOR
+    { 
+        strcpy($$, "for ");
+        strcat($$, $2);
+        strcat($$, " {\n\t\t");
+        addTabulations($4);
+        strcat($$, $4);
+        strcat($$, "}");
+    }
+
+    | FOR for_head DO END_FOR
+    { 
+        strcpy($$, "for ");
+        strcat($$, $2);
+        strcat($$, " {}");
+    }
+
+
+for_head_main:
+    STRING ASSIGN expr TO expr
+    {
+        strcpy($$, "int ");
+        strcat($$, $1);
+        strcat($$, " = ");
+        strcat($$, $3);
+        strcat($$, "; ");
+        strcat($$, $1);
+        strcat($$, " < ");
+        strcat($$, $5);
+        strcat($$, "; ");
+        strcat($$, $1);
+    }
+
+for_head:
+    for_head_main
+    { 
+        strcpy($$, "(");
+        strcat($$, $1);
+        strcat($$, "++");
+        strcat($$, ")");
+    }
+    | for_head_main BY expr
+    {
+        strcpy($$, "(");
+        strcat($$, $1);
+        strcat($$, " += ");
+        strcat($$, $3);
+        strcat($$, ")");
     }
 
 %%
