@@ -10,6 +10,9 @@ extern FILE* yyout;
 int yyerror(char* s);
 extern int yylex();
 
+void append(char subject[], const char insert[], int pos);
+void addTabulations(char* subject);
+
 %}
 
 
@@ -19,10 +22,14 @@ extern int yylex();
 
 %start prog
 
-%token ASSIGN INT_TYPE COLON STRING_TYPE QUOTATION VAR_BEGIN VAR_END EQUALS UNEQUALS MOD OR XOR AND NOT 
+%token ASSIGN INT_TYPE COLON STRING_TYPE QUOTATION VAR_BEGIN VAR_END EQUALS UNEQUALS MOD OR XOR AND NOT IF ELSE_IF ELSE THEN END_IF
 %token<str> STRING SIGN
 %token<str> NUM
-%type<str> action_list create_variable action create_variable_list set_string_var set_int_var expr expr_operand
+%type<str> action_list else if_init if_content
+create_variable action 
+create_variable_list set_string_var 
+set_int_var expr expr_operand if 
+
 
 
 
@@ -46,10 +53,12 @@ action:
     { printf("Var start"); strcpy($$, $2); printf("Var end"); }
     | expr
     { printf("EXPR"); strcpy($$, $1); strcat($$,";\n\t"); }
+    | if
+    { printf("IF"); strcpy($$, $1); strcat($$,"\n\t"); }
 ;
 
 
-/*--------------------------------------- VARIABLES ---------------------------------------------*/
+/* --------------------------------------VARIABLES--------------------------------------------*/
 
 create_variable_list:
     create_variable
@@ -118,8 +127,63 @@ expr:
     {strcpy($$, $1); strcat($$, " && "); strcat($$, $3);}
     | expr_operand XOR expr_operand
     {strcpy($$, $1); strcat($$, " ^ "); strcat($$, $3);}
-%%
 
+
+/* ---------------------------------------------------------------------------------------------*/
+
+/* ----------------------------------IF STATEMENTS-----------------------------------------------*/
+
+
+if:
+    if_init END_IF
+    { strcpy($$, $1); }
+
+    | if_init else END_IF
+    { strcpy($$, $1); strcat($$, $2); }
+    
+
+if_init:
+    IF if_content
+    {   
+        strcpy($$, "if "); 
+        strcat($$, $2);
+    } 
+
+else:
+    ELSE action_list
+    {
+        strcpy($$, " else {\n\t\t");
+        addTabulations($2);
+        strcat($$, $2); 
+        strcat($$, "}");
+    }
+
+    | ELSE_IF if_content
+    {   
+        strcpy($$, " else if "); 
+        strcat($$, $2);
+
+    } 
+
+    | ELSE_IF if_content else
+    {   
+        strcpy($$, " else if "); 
+        strcat($$, $2);
+        strcat($$, $3);
+    } 
+
+if_content:
+   expr THEN action_list
+    {
+        strcpy($$, "(");
+        strcat($$, $1);
+        strcat($$, ") {\n\t\t");
+        addTabulations($3);
+        strcat($$, $3); 
+        strcat($$, "}");
+    }
+
+%%
 int main(void)
 {
     /* #ifdef YYDEBUG
@@ -141,4 +205,26 @@ int main(void)
 int yyerror(char* s)
 {
     fprintf(yyout, "%s\n", s);
+}
+
+void append(char subject[], const char insert[], int pos) {
+    char buf[100] = {};
+
+    strncpy(buf, subject, pos); 
+    int len = strlen(buf);
+    strcpy(buf+len, insert); 
+    len += strlen(insert);  
+    strcpy(buf+len, subject+pos); 
+
+    strcpy(subject, buf);   
+}
+
+void addTabulations(char* subject) {
+    size_t length = strlen(subject);
+    size_t i = 1; 
+    for (; i < length - 1; i++) {
+        if (subject[i - 1] == '\n') {
+            append(subject, "\t", i);
+        } 
+    }
 }

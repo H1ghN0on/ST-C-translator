@@ -30,6 +30,12 @@ void showError();
 "AND" { return AND; }
 "NOT" { return NOT; }
 
+"IF" { return IF; }
+"ELSEIF" { return ELSE_IF; }
+"ELSE" { return ELSE; }
+"THEN" { return THEN; }
+"END_IF" { return END_IF; }
+
 
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}

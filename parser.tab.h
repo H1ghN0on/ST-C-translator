@@ -53,9 +53,14 @@
      XOR = 269,
      AND = 270,
      NOT = 271,
-     STRING = 272,
-     SIGN = 273,
-     NUM = 274
+     IF = 272,
+     ELSE_IF = 273,
+     ELSE = 274,
+     THEN = 275,
+     END_IF = 276,
+     STRING = 277,
+     SIGN = 278,
+     NUM = 279
    };
 #endif
 
@@ -66,14 +71,14 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 16 "parser.y"
+#line 19 "parser.y"
 
     char str[1024];
 
 
 
 /* Line 1676 of yacc.c  */
-#line 77 "parser.tab.h"
+#line 82 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

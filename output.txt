@@ -21,6 +21,24 @@ int main()
 	var1 ^ var2;
 	var1 && var2;
 	!var1;
+	if (var1 / var2) {
+		int int10 = 543;
+		int int11 = 543;
+		var1 / var2;
+	} else if (var2 / var3) {
+		int int10 = 543;
+		int int11 = 543;
+	} else {
+		int int10 = 543;
+		int int11 = 543;
+	}
+	if (var1 / var2) {
+		char str10[255] = "Ajdaha";
+		char str11[255] = "ZhongLi";
+		var1 % var2;
+	} else if (var1 / var2) {
+		int int11 = 543;
+	}
 	
 	return 0;
 }
