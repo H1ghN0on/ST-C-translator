@@ -27,6 +27,7 @@ QUOTATION VAR_BEGIN VAR_END EQUALS
 UNEQUALS MOD OR XOR AND 
 NOT IF ELSE_IF ELSE 
 THEN END_IF FOR TO DO BY END_FOR
+WHILE END_WHILE
 
 
 %token<str> STRING SIGN
@@ -36,6 +37,7 @@ THEN END_IF FOR TO DO BY END_FOR
 %type<str> expr expr_operand if 
 %type<str> else if_init if_content
 %type<str> for for_head for_head_main
+%type<str> while while_head
 
 
 
@@ -64,6 +66,8 @@ action:
     { printf("IF"); strcpy($$, $1); strcat($$,"\n\t"); }
     | for
     { printf("FOR"); strcpy($$, $1); strcat($$,"\n\t"); }
+    | while
+    { printf("WHILE"); strcpy($$, $1); strcat($$,"\n\t"); }
 ;
 
 
@@ -193,7 +197,7 @@ if_content:
         strcat($$, "}");
     }
     
-/* ---------------------------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------------*/
 
 /* ---------------------------------------FOR LOOPS-------------------------------------------------*/
 
@@ -247,6 +251,39 @@ for_head:
         strcat($$, $3);
         strcat($$, ")");
     }
+
+/* -------------------------------------------------------------------------------------------------*/
+
+/* --------------------------------------WHILE LOOPS------------------------------------------------*/
+
+while_head:
+    WHILE expr DO
+    {
+        strcpy($$, "while "); 
+        strcat($$, "("); 
+        strcat($$, $2); 
+        strcat($$, ")"); 
+    }
+
+while:
+    while_head action_list END_WHILE
+    {
+        strcpy($$, $1);
+        strcat($$, " {\n\t\t");
+        addTabulations($2);
+        strcat($$, $2);
+        strcat($$, "}");
+    }
+    | while_head END_WHILE
+    { 
+        strcpy($$, $1); 
+        strcat($$, " {}");
+    }
+
+
+
+/* -------------------------------------------------------------------------------------------------*/
+
 
 %%
 int main(void)

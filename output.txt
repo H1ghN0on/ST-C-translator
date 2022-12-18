@@ -3,7 +3,7 @@
 
 int main()
 {
-	int int1 = 543;
+()()	int int1 = 543;
 	char str1[255] = "Ohayo";
 	int int2 = 543;
 	int int3 = 543;
@@ -43,6 +43,10 @@ int main()
 		int int11 = 543;
 	}
 	for (int inf = 5; inf < 10; inf += 2) {}
+	while (k < 0) {
+		int int11 = 543;
+	}
+	while (k1 + k2) {}
 	
 	return 0;
 }

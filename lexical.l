@@ -42,6 +42,9 @@ void showError();
 "DO" { return DO; }
 "END_FOR" { return END_FOR; }
 
+"WHILE" { return WHILE; }
+"END_WHILE" { return END_WHILE; }
+
 
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}

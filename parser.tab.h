@@ -63,9 +63,11 @@
      DO = 279,
      BY = 280,
      END_FOR = 281,
-     STRING = 282,
-     SIGN = 283,
-     NUM = 284
+     WHILE = 282,
+     END_WHILE = 283,
+     STRING = 284,
+     SIGN = 285,
+     NUM = 286
    };
 #endif
 
@@ -83,7 +85,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 87 "parser.tab.h"
+#line 89 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
