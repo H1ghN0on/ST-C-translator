@@ -34,7 +34,7 @@ WHILE END_WHILE REPEAT UNTIL END_REPEAT
 %token<str> NUM
 %type<str> action_list action 
 %type<str> create_variable create_variable_list set_string_var set_int_var
-%type<str> expr expr_operand if 
+%type<str> expr expr_operand if expr_stmt expr_main assign_expr
 %type<str> else if_init if_content
 %type<str> for for_head for_head_main
 %type<str> while while_head
@@ -71,6 +71,8 @@ action:
     { printf("WHILE"); strcpy($$, $1); strcat($$,"\n\t"); }
     | repeat
     { printf("REPEAT"); strcpy($$, $1); strcat($$,"\n\t"); }
+    | assign_expr
+    { printf("ASSIGN"); strcpy($$, $1); strcat($$,"\n\t");}
 ;
 
 
@@ -121,30 +123,47 @@ set_int_var:
 
 /* --------------------------------------EXPRESSIONS--------------------------------------------*/
 
+
+
 expr_operand:
     STRING
     {strcpy($$, $1);} 
     | NUM
     {strcpy($$, $1);}
+expr_stmt:
+    EQUALS expr_operand
+    { strcpy($$, " == "); strcat($$, $2);}
+    | UNEQUALS expr_operand
+    { strcpy($$, " != "); strcat($$, $2);}
+    | MOD expr_operand
+    { strcpy($$, " %% "); strcat($$, $2);}
+    | SIGN expr_operand
+    { strcpy($$, " "); strcat($$, $1); strcat($$, " "); strcat($$, $2);}
+    | OR expr_operand
+    { strcpy($$, " || "); strcat($$, $2);}
+    | AND expr_operand
+    { strcpy($$, " && "); strcat($$, $2);}
+    | XOR expr_operand
+    { strcpy($$, " ^ "); strcat($$, $2);}
+
+expr_main:
+    expr_stmt
+    { strcpy($$, $1); }
+    | expr_stmt expr_main
+    { strcpy($$, $1); strcat($$, $2); }
+    
+
 expr:
     expr_operand
-    {strcpy($$, $1);}
-    | expr_operand EQUALS expr_operand
-    {strcpy($$, $1); strcat($$, " == "); strcat($$, $3);}
-    | expr_operand UNEQUALS expr_operand
-    {strcpy($$, $1); strcat($$, " != "); strcat($$, $3);}
-    | expr_operand MOD expr_operand
-    {strcpy($$, $1); strcat($$, " %% "); strcat($$, $3);}
-    | expr_operand SIGN expr_operand
-    {strcpy($$, $1); strcat($$, " "); strcat($$, $2); strcat($$, " "); strcat($$, $3);}
+    { strcpy($$, $1); }
+    | expr_operand expr_main
+    { strcpy($$, $1), strcat($$, $2); }
     | NOT expr_operand
-    {strcpy($$, "!"); strcat($$, $2);}
-    | expr_operand OR expr_operand
-    {strcpy($$, $1); strcat($$, " || "); strcat($$, $3);}
-    | expr_operand AND expr_operand
-    {strcpy($$, $1); strcat($$, " && "); strcat($$, $3);}
-    | expr_operand XOR expr_operand
-    {strcpy($$, $1); strcat($$, " ^ "); strcat($$, $3);}
+    { strcpy($$, "!"); strcat($$, $2);}
+
+assign_expr:
+    STRING ASSIGN expr
+    { strcpy($$, $1); strcat($$, " = "); strcat($$, $3); }
 
 /* ---------------------------------------------------------------------------------------------*/
 

@@ -52,7 +52,7 @@ void showError();
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}
 [0-9]+ {strcpy(yylval.str, yytext); return NUM;}
-["+""-""*""\/"">""<"">=""<="] {strcpy(yylval.str, yytext); return SIGN;}
+["+""\-""*""\/"">""<"">=""<="] {strcpy(yylval.str, yytext); return SIGN;}
 
 
 [ \t\v\n\f] { }

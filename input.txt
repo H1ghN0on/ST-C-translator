@@ -12,6 +12,10 @@ END_VAR
 
 str3: STRING := "Ohayogozaimasu"
 
+var1: INT := 3
+var1 := var2 + var3
+
+var1 + var2 * var4 / var5 mod var6 + var9 = var4 - var3
 var1 / var2
 var1 = var2
 var1 <> var2
