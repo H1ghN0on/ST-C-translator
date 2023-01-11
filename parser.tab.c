@@ -481,12 +481,12 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    49,    49,    53,    55,    60,    62,    64,    66,    68,
-      70,    72,    74,    82,    84,    91,    97,   102,   109,   114,
-     124,   128,   138,   140,   143,   145,   147,   149,   151,   153,
-     155,   159,   161,   166,   168,   170,   174,   183,   186,   191,
-     198,   206,   213,   221,   236,   246,   255,   270,   277,   291,
-     300,   308,   320,   328,   337
+       0,    50,    50,    54,    56,    61,    63,    65,    67,    69,
+      71,    73,    75,    83,    85,    92,    98,   103,   110,   115,
+     125,   129,   139,   141,   144,   146,   148,   150,   152,   154,
+     156,   160,   162,   167,   169,   171,   175,   184,   187,   192,
+     199,   207,   214,   222,   237,   247,   256,   271,   278,   292,
+     301,   309,   321,   329,   338
 };
 #endif
 
@@ -1472,98 +1472,98 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 50 "parser.y"
+#line 51 "parser.y"
     { printf("MAIN");fprintf(yyout, "\t"); fprintf(yyout, (yyvsp[(1) - (1)].str));fprintf(yyout, "\n\treturn 0;\n");return 0;;}
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 54 "parser.y"
+#line 55 "parser.y"
     { printf("HI2"); strcpy((yyval.str), (yyvsp[(1) - (1)].str));;}
     break;
 
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 56 "parser.y"
+#line 57 "parser.y"
     { printf("HI"); strcpy((yyval.str), (yyvsp[(1) - (2)].str)); strcat((yyval.str), (yyvsp[(2) - (2)].str)); ;}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 61 "parser.y"
+#line 62 "parser.y"
     { printf("VAR"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),";\n\t");;}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 63 "parser.y"
+#line 64 "parser.y"
     { printf("Var start"); strcpy((yyval.str), (yyvsp[(2) - (3)].str)); printf("Var end"); ;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 65 "parser.y"
+#line 66 "parser.y"
     { printf("EXPR"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),";\n\t"); ;}
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 67 "parser.y"
+#line 68 "parser.y"
     { printf("IF"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),"\n\t"); ;}
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 69 "parser.y"
+#line 70 "parser.y"
     { printf("FOR"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),"\n\t"); ;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 71 "parser.y"
+#line 72 "parser.y"
     { printf("WHILE"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),"\n\t"); ;}
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 73 "parser.y"
+#line 74 "parser.y"
     { printf("REPEAT"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),"\n\t"); ;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 75 "parser.y"
+#line 76 "parser.y"
     { printf("ASSIGN"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),"\n\t");;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 83 "parser.y"
+#line 84 "parser.y"
     { printf("VAR"); strcpy((yyval.str), (yyvsp[(1) - (1)].str)); strcat((yyval.str),";\n\t");;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 85 "parser.y"
+#line 86 "parser.y"
     { printf("VAR"); strcpy((yyval.str), (yyvsp[(1) - (2)].str)); strcat((yyval.str),";\n\t"); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 92 "parser.y"
+#line 93 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (3)].str));  
         strcat((yyval.str), " = ");
@@ -1574,7 +1574,7 @@ yyreduce:
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 98 "parser.y"
+#line 99 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (1)].str)); 
         strcat((yyval.str), " = 0");
@@ -1584,7 +1584,7 @@ yyreduce:
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 103 "parser.y"
+#line 104 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (5)].str));  
         strcat((yyval.str), " = \"");
@@ -1596,7 +1596,7 @@ yyreduce:
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 110 "parser.y"
+#line 111 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (1)].str));
         strcat((yyval.str), " = \"\"");
@@ -1606,7 +1606,7 @@ yyreduce:
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 115 "parser.y"
+#line 116 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (3)].str));  
         strcat((yyval.str), " = ");
@@ -1617,140 +1617,140 @@ yyreduce:
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 125 "parser.y"
+#line 126 "parser.y"
     { strcpy((yyval.str), "char "); strcat((yyval.str), (yyvsp[(1) - (3)].str)); strcat((yyval.str), "[255]") ;}
     break;
 
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 129 "parser.y"
+#line 130 "parser.y"
     { strcpy((yyval.str), "int "); strcat((yyval.str), (yyvsp[(1) - (3)].str)) ;}
     break;
 
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 139 "parser.y"
+#line 140 "parser.y"
     {strcpy((yyval.str), (yyvsp[(1) - (1)].str));;}
     break;
 
   case 23:
 
 /* Line 1455 of yacc.c  */
-#line 141 "parser.y"
+#line 142 "parser.y"
     {strcpy((yyval.str), (yyvsp[(1) - (1)].str));;}
     break;
 
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 144 "parser.y"
+#line 145 "parser.y"
     { strcpy((yyval.str), " == "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 25:
 
 /* Line 1455 of yacc.c  */
-#line 146 "parser.y"
+#line 147 "parser.y"
     { strcpy((yyval.str), " != "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 26:
 
 /* Line 1455 of yacc.c  */
-#line 148 "parser.y"
+#line 149 "parser.y"
     { strcpy((yyval.str), " %% "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 150 "parser.y"
+#line 151 "parser.y"
     { strcpy((yyval.str), " "); strcat((yyval.str), (yyvsp[(1) - (2)].str)); strcat((yyval.str), " "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 28:
 
 /* Line 1455 of yacc.c  */
-#line 152 "parser.y"
+#line 153 "parser.y"
     { strcpy((yyval.str), " || "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 154 "parser.y"
+#line 155 "parser.y"
     { strcpy((yyval.str), " && "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 156 "parser.y"
+#line 157 "parser.y"
     { strcpy((yyval.str), " ^ "); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 31:
 
 /* Line 1455 of yacc.c  */
-#line 160 "parser.y"
+#line 161 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (1)].str)); ;}
     break;
 
   case 32:
 
 /* Line 1455 of yacc.c  */
-#line 162 "parser.y"
+#line 163 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (2)].str)); strcat((yyval.str), (yyvsp[(2) - (2)].str)); ;}
     break;
 
   case 33:
 
 /* Line 1455 of yacc.c  */
-#line 167 "parser.y"
+#line 168 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (1)].str)); ;}
     break;
 
   case 34:
 
 /* Line 1455 of yacc.c  */
-#line 169 "parser.y"
+#line 170 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (2)].str)), strcat((yyval.str), (yyvsp[(2) - (2)].str)); ;}
     break;
 
   case 35:
 
 /* Line 1455 of yacc.c  */
-#line 171 "parser.y"
+#line 172 "parser.y"
     { strcpy((yyval.str), "!"); strcat((yyval.str), (yyvsp[(2) - (2)].str));;}
     break;
 
   case 36:
 
 /* Line 1455 of yacc.c  */
-#line 175 "parser.y"
+#line 176 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (3)].str)); strcat((yyval.str), " = "); strcat((yyval.str), (yyvsp[(3) - (3)].str)); ;}
     break;
 
   case 37:
 
 /* Line 1455 of yacc.c  */
-#line 184 "parser.y"
+#line 185 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (2)].str)); ;}
     break;
 
   case 38:
 
 /* Line 1455 of yacc.c  */
-#line 187 "parser.y"
+#line 188 "parser.y"
     { strcpy((yyval.str), (yyvsp[(1) - (3)].str)); strcat((yyval.str), (yyvsp[(2) - (3)].str)); ;}
     break;
 
   case 39:
 
 /* Line 1455 of yacc.c  */
-#line 192 "parser.y"
+#line 193 "parser.y"
     {   
         strcpy((yyval.str), "if "); 
         strcat((yyval.str), (yyvsp[(2) - (2)].str));
@@ -1760,7 +1760,7 @@ yyreduce:
   case 40:
 
 /* Line 1455 of yacc.c  */
-#line 199 "parser.y"
+#line 200 "parser.y"
     {
         strcpy((yyval.str), " else {\n\t\t");
         addTabulations((yyvsp[(2) - (2)].str));
@@ -1772,7 +1772,7 @@ yyreduce:
   case 41:
 
 /* Line 1455 of yacc.c  */
-#line 207 "parser.y"
+#line 208 "parser.y"
     {   
         strcpy((yyval.str), " else if "); 
         strcat((yyval.str), (yyvsp[(2) - (2)].str));
@@ -1783,7 +1783,7 @@ yyreduce:
   case 42:
 
 /* Line 1455 of yacc.c  */
-#line 214 "parser.y"
+#line 215 "parser.y"
     {   
         strcpy((yyval.str), " else if "); 
         strcat((yyval.str), (yyvsp[(2) - (3)].str));
@@ -1794,7 +1794,7 @@ yyreduce:
   case 43:
 
 /* Line 1455 of yacc.c  */
-#line 222 "parser.y"
+#line 223 "parser.y"
     {
         strcpy((yyval.str), "(");
         strcat((yyval.str), (yyvsp[(1) - (3)].str));
@@ -1808,7 +1808,7 @@ yyreduce:
   case 44:
 
 /* Line 1455 of yacc.c  */
-#line 237 "parser.y"
+#line 238 "parser.y"
     { 
         strcpy((yyval.str), "for ");
         strcat((yyval.str), (yyvsp[(2) - (5)].str));
@@ -1822,7 +1822,7 @@ yyreduce:
   case 45:
 
 /* Line 1455 of yacc.c  */
-#line 247 "parser.y"
+#line 248 "parser.y"
     { 
         strcpy((yyval.str), "for ");
         strcat((yyval.str), (yyvsp[(2) - (4)].str));
@@ -1833,7 +1833,7 @@ yyreduce:
   case 46:
 
 /* Line 1455 of yacc.c  */
-#line 256 "parser.y"
+#line 257 "parser.y"
     {
         strcpy((yyval.str), "int ");
         strcat((yyval.str), (yyvsp[(1) - (5)].str));
@@ -1851,7 +1851,7 @@ yyreduce:
   case 47:
 
 /* Line 1455 of yacc.c  */
-#line 271 "parser.y"
+#line 272 "parser.y"
     { 
         strcpy((yyval.str), "(");
         strcat((yyval.str), (yyvsp[(1) - (1)].str));
@@ -1863,7 +1863,7 @@ yyreduce:
   case 48:
 
 /* Line 1455 of yacc.c  */
-#line 278 "parser.y"
+#line 279 "parser.y"
     {
         strcpy((yyval.str), "(");
         strcat((yyval.str), (yyvsp[(1) - (3)].str));
@@ -1876,7 +1876,7 @@ yyreduce:
   case 49:
 
 /* Line 1455 of yacc.c  */
-#line 292 "parser.y"
+#line 293 "parser.y"
     {
         strcpy((yyval.str), "while "); 
         strcat((yyval.str), "("); 
@@ -1888,7 +1888,7 @@ yyreduce:
   case 50:
 
 /* Line 1455 of yacc.c  */
-#line 301 "parser.y"
+#line 302 "parser.y"
     {
         strcpy((yyval.str), (yyvsp[(1) - (3)].str));
         strcat((yyval.str), " {\n\t\t");
@@ -1901,7 +1901,7 @@ yyreduce:
   case 51:
 
 /* Line 1455 of yacc.c  */
-#line 309 "parser.y"
+#line 310 "parser.y"
     { 
         strcpy((yyval.str), (yyvsp[(1) - (2)].str)); 
         strcat((yyval.str), " {}");
@@ -1911,7 +1911,7 @@ yyreduce:
   case 52:
 
 /* Line 1455 of yacc.c  */
-#line 321 "parser.y"
+#line 322 "parser.y"
     {
         strcpy((yyval.str), " while (");
         strcat((yyval.str), (yyvsp[(2) - (2)].str));
@@ -1922,7 +1922,7 @@ yyreduce:
   case 53:
 
 /* Line 1455 of yacc.c  */
-#line 329 "parser.y"
+#line 330 "parser.y"
     {
         strcpy((yyval.str), "do");
         strcat((yyval.str), " {\n\t\t");
@@ -1936,7 +1936,7 @@ yyreduce:
   case 54:
 
 /* Line 1455 of yacc.c  */
-#line 338 "parser.y"
+#line 339 "parser.y"
     {
         strcpy((yyval.str), "do ");
         strcat((yyval.str), "{");
@@ -2160,7 +2160,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 347 "parser.y"
+#line 348 "parser.y"
 
 int main(void)
 {

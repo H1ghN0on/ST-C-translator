@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "parser.tab.h"
-extern FILE* yyin;
-extern FILE* yyout;
+
 void showError();
 
 %}
@@ -48,6 +47,7 @@ void showError();
 "REPEAT" { return REPEAT; }
 "UNTIL" { return UNTIL; }
 "END_REPEAT" { return END_REPEAT; }
+
 
 ["] { return QUOTATION; }
 [a-zA-Z][a-zA-Z0-9]* {strcpy(yylval.str, yytext); return STRING;}

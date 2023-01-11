@@ -1,6 +1,6 @@
 VAR
     int1: INT := 543
-    str1: STRING := "Ohayo"
+    str1: STRING := "maina"
     int2: INT := 543
     int3: INT := 543
     int4: INT := 543
@@ -10,7 +10,7 @@ VAR
     str8: STRING
 END_VAR
 
-str3: STRING := "Ohayogozaimasu"
+str3: STRING := "eule"
 
 var6: INT := 3 + 5 + var2
 var5: STRING := var3 + var3 / var4
@@ -40,8 +40,8 @@ ELSE
 END_IF
 
 IF var1 / var2 THEN
-    str10: STRING := "Ajdaha"
-    str11: STRING := "ZhongLi"
+    str10: STRING := "adler"
+    str11: STRING := "elster"
     var1 mod var2
 ELSEIF var1 / var2 THEN
     int11: INT := 543
@@ -69,6 +69,3 @@ REPEAT
 UNTIL k = 0
 END_REPEAT
 
-REPEAT
-UNTIL k < g
-END_REPEAT

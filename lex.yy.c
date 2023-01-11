@@ -432,11 +432,10 @@ char *yytext;
 #include <stdlib.h>
 #include <string.h>
 #include "parser.tab.h"
-extern FILE* yyin;
-extern FILE* yyout;
+
 void showError();
 
-#line 440 "lex.yy.c"
+#line 439 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -587,10 +586,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 15 "lexical.l"
+#line 14 "lexical.l"
 
 
-#line 594 "lex.yy.c"
+#line 593 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -675,142 +674,142 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 17 "lexical.l"
+#line 16 "lexical.l"
 { return COLON; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 18 "lexical.l"
+#line 17 "lexical.l"
 { return INT_TYPE; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 "lexical.l"
+#line 18 "lexical.l"
 { return STRING_TYPE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 21 "lexical.l"
+#line 20 "lexical.l"
 { return ASSIGN; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 22 "lexical.l"
+#line 21 "lexical.l"
 { return VAR_BEGIN; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 23 "lexical.l"
+#line 22 "lexical.l"
 { return VAR_END; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 25 "lexical.l"
+#line 24 "lexical.l"
 { return EQUALS; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 26 "lexical.l"
+#line 25 "lexical.l"
 { return UNEQUALS; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 27 "lexical.l"
+#line 26 "lexical.l"
 { return MOD; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 28 "lexical.l"
+#line 27 "lexical.l"
 { return OR; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 29 "lexical.l"
+#line 28 "lexical.l"
 { return XOR; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 30 "lexical.l"
+#line 29 "lexical.l"
 { return AND; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 31 "lexical.l"
+#line 30 "lexical.l"
 { return NOT; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 33 "lexical.l"
+#line 32 "lexical.l"
 { return IF; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 34 "lexical.l"
+#line 33 "lexical.l"
 { return ELSE_IF; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 35 "lexical.l"
+#line 34 "lexical.l"
 { return ELSE; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 36 "lexical.l"
+#line 35 "lexical.l"
 { return THEN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 37 "lexical.l"
+#line 36 "lexical.l"
 { return END_IF; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 39 "lexical.l"
+#line 38 "lexical.l"
 { return FOR; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 40 "lexical.l"
+#line 39 "lexical.l"
 { return TO; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 41 "lexical.l"
+#line 40 "lexical.l"
 { return BY; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 42 "lexical.l"
+#line 41 "lexical.l"
 { return DO; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 43 "lexical.l"
+#line 42 "lexical.l"
 { return END_FOR; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 45 "lexical.l"
+#line 44 "lexical.l"
 { return WHILE; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 46 "lexical.l"
+#line 45 "lexical.l"
 { return END_WHILE; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 48 "lexical.l"
+#line 47 "lexical.l"
 { return REPEAT; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 49 "lexical.l"
+#line 48 "lexical.l"
 { return UNTIL; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 50 "lexical.l"
+#line 49 "lexical.l"
 { return END_REPEAT; }
 	YY_BREAK
 case 29:
@@ -843,7 +842,7 @@ YY_RULE_SETUP
 #line 62 "lexical.l"
 ECHO;
 	YY_BREAK
-#line 847 "lex.yy.c"
+#line 846 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

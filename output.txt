@@ -4,7 +4,7 @@
 int main()
 {
 	int int1 = 543;
-	char str1[255] = "Ohayo";
+	char str1[255] = "maina";
 	int int2 = 543;
 	int int3 = 543;
 	int int4 = 543;
@@ -12,7 +12,7 @@ int main()
 	int int6 = 543;
 	int int7 = 0;
 	char str8[255] = "";
-	char str3[255] = "Ohayogozaimasu";
+	char str3[255] = "eule";
 	int var6 = 3 + 5 + var2;
 	char var5[255] = var3 + var3 / var4;
 	var1 = var2 + var3
@@ -37,8 +37,8 @@ int main()
 		int int11 = 543;
 	}
 	if (var1 / var2) {
-		char str10[255] = "Ajdaha";
-		char str11[255] = "ZhongLi";
+		char str10[255] = "adler";
+		char str11[255] = "elster";
 		var1 % var2;
 	} else if (var1 / var2) {
 		int int11 = 543;
@@ -54,7 +54,6 @@ int main()
 	do {
 		int int11 = 543;
 	} while (k == 0);
-	do {} whildo {} while (k < g);
 	
 	return 0;
 }
